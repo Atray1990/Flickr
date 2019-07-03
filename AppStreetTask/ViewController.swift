@@ -34,11 +34,11 @@ class ViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = leftNavBarButton
         searchBar.delegate = self
         
-        button = dropDownBtn.init(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        button = dropDownBtn.init(frame: CGRect(x: 0, y: 0, width: 100, height: 30))
         button.setTitle("Select", for: .normal)
         button.backgroundColor = UIColor.red
         button.translatesAutoresizingMaskIntoConstraints = false
-        
+       
         //Add Button to the View Controller
         let rightBarButton = UIBarButtonItem(customView: button)
         self.navigationItem.rightBarButtonItem = rightBarButton

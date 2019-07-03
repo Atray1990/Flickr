@@ -30,7 +30,7 @@ class dropDownBtn: UIButton, dropDownProtocol {
         
         self.backgroundColor = UIColor.darkGray
         
-        dropView = dropDownView.init(frame: CGRect.init(x: 0, y: 20, width: 50, height: 150))
+        dropView = dropDownView.init(frame: CGRect.init(x: 0, y: 0, width: 0, height: 0))
         dropView.delegate = self
         dropView.translatesAutoresizingMaskIntoConstraints = false
        
@@ -51,7 +51,7 @@ class dropDownBtn: UIButton, dropDownProtocol {
             
             isOpen = true
             
-           // NSLayoutConstraint.deactivate([self.height])
+            NSLayoutConstraint.deactivate([self.height])
             
             if self.dropView.tableView.contentSize.height > 150 {
                 self.height.constant = 150
@@ -59,8 +59,7 @@ class dropDownBtn: UIButton, dropDownProtocol {
                 self.height.constant = self.dropView.tableView.contentSize.height
             }
             
-            
-          //  NSLayoutConstraint.activate([self.height])
+            NSLayoutConstraint.activate([self.height])
             
             
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {
@@ -109,8 +108,8 @@ class dropDownView: UIView, UITableViewDelegate, UITableViewDataSource  {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        tableView.backgroundColor = UIColor.lightGray
-        self.backgroundColor = UIColor.lightGray
+       // tableView.backgroundColor = UIColor.lightGray
+        //self.backgroundColor = UIColor.lightGray
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -141,15 +140,12 @@ class dropDownView: UIView, UITableViewDelegate, UITableViewDataSource  {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        print(dropDownOptions[indexPath.row])
         cell.textLabel?.text = dropDownOptions[indexPath.row]
-        cell.backgroundColor = UIColor.lightGray
-        cell.textLabel?.textColor = UIColor.green
+       
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("drop down selection \(dropDownOptions[indexPath.row])")
         self.delegate.dropDownPressed(string: dropDownOptions[indexPath.row])
         self.tableView.deselectRow(at: indexPath, animated: true)
     }
