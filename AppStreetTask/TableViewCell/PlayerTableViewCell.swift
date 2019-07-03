@@ -29,5 +29,13 @@ class collectionViewCell: UICollectionViewCell {
         ivPlayerImage.layer.cornerRadius = 2
     }
     
-    
+    func setupWithPhoto(flickrPhoto: FlickrPhoto) {
+        lblPlayerName.text = flickrPhoto.title
+        ivPlayerImage.DownloadImageForCollectionView(from: flickrPhoto.photoUrl) { (err) in
+            
+            if err != nil {
+                
+            }
+        }
+    }
 }

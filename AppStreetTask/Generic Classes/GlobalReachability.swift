@@ -11,5 +11,5 @@ class GlobalReachability: NSObject
         return instance
     }()
     
-    var reachability = Reachability()!
+   
 }

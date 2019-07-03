@@ -29,7 +29,7 @@ extension UITextField
     // MARK :- Methods for providing paddign to textfield
     func textFieldPadding()
     {
-        self.leftViewMode = UITextFieldViewMode.always
+        self.leftViewMode = UITextField.ViewMode.always
         self.layer.borderWidth = 1.0
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: self.frame.height))
         self.leftView = paddingView
@@ -99,7 +99,7 @@ extension AppDelegate
         if let vNetworkBar = self.window?.viewWithTag(89)
         {
             
-            UIView.animate(withDuration: 1.0, delay: 0.0, options: UIViewAnimationOptions.curveEaseInOut, animations: {
+            UIView.animate(withDuration: 1.0, delay: 0.0, options: UIView.AnimationOptions.curveEaseInOut, animations: {
                 
                 var frameNetworkBar = vNetworkBar.frame
                 frameNetworkBar.origin.y = -frameNetworkBar.size.height

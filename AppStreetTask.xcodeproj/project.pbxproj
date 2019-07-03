@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F090FD522CC97DE00BED0AB /* GetFlickerPhotos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F090FD422CC97DD00BED0AB /* GetFlickerPhotos.swift */; };
 		3FCAB55522CBBE4B006D6A76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCAB55422CBBE4B006D6A76 /* AppDelegate.swift */; };
 		3FCAB55722CBBE4B006D6A76 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCAB55622CBBE4B006D6A76 /* ViewController.swift */; };
 		3FCAB55A22CBBE4B006D6A76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FCAB55822CBBE4B006D6A76 /* Main.storyboard */; };
@@ -14,6 +15,10 @@
 		3FCAB55F22CBBE4C006D6A76 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FCAB55D22CBBE4C006D6A76 /* LaunchScreen.storyboard */; };
 		3FCAB56A22CBBE4C006D6A76 /* AppStreetTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCAB56922CBBE4C006D6A76 /* AppStreetTaskTests.swift */; };
 		3FCAB57522CBBE4C006D6A76 /* AppStreetTaskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCAB57422CBBE4C006D6A76 /* AppStreetTaskUITests.swift */; };
+		3FCAB58722CBC9E3006D6A76 /* DropDownItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCAB58622CBC9E3006D6A76 /* DropDownItem.swift */; };
+		3FCAB58922CBD5BB006D6A76 /* PlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCAB58822CBD5BB006D6A76 /* PlayerTableViewCell.swift */; };
+		3FCAB58E22CBD98D006D6A76 /* CommonCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCAB58B22CBD98D006D6A76 /* CommonCategories.swift */; };
+		3FCAB58F22CBD98D006D6A76 /* GlobalReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCAB58C22CBD98D006D6A76 /* GlobalReachability.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F090FD422CC97DD00BED0AB /* GetFlickerPhotos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFlickerPhotos.swift; sourceTree = "<group>"; };
 		3FCAB55122CBBE4B006D6A76 /* AppStreetTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStreetTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FCAB55422CBBE4B006D6A76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FCAB55622CBBE4B006D6A76 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +53,10 @@
 		3FCAB57022CBBE4C006D6A76 /* AppStreetTaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppStreetTaskUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FCAB57422CBBE4C006D6A76 /* AppStreetTaskUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStreetTaskUITests.swift; sourceTree = "<group>"; };
 		3FCAB57622CBBE4C006D6A76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3FCAB58622CBC9E3006D6A76 /* DropDownItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownItem.swift; sourceTree = "<group>"; };
+		3FCAB58822CBD5BB006D6A76 /* PlayerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerTableViewCell.swift; sourceTree = "<group>"; };
+		3FCAB58B22CBD98D006D6A76 /* CommonCategories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonCategories.swift; sourceTree = "<group>"; };
+		3FCAB58C22CBD98D006D6A76 /* GlobalReachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalReachability.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +107,12 @@
 		3FCAB55322CBBE4B006D6A76 /* AppStreetTask */ = {
 			isa = PBXGroup;
 			children = (
+				3FCAB59122CBD994006D6A76 /* TableViewCell */,
 				3FCAB55422CBBE4B006D6A76 /* AppDelegate.swift */,
 				3FCAB55622CBBE4B006D6A76 /* ViewController.swift */,
+				3FCAB58622CBC9E3006D6A76 /* DropDownItem.swift */,
+				3F090FD422CC97DD00BED0AB /* GetFlickerPhotos.swift */,
+				3FCAB58A22CBD98D006D6A76 /* Generic Classes */,
 				3FCAB55822CBBE4B006D6A76 /* Main.storyboard */,
 				3FCAB55B22CBBE4C006D6A76 /* Assets.xcassets */,
 				3FCAB55D22CBBE4C006D6A76 /* LaunchScreen.storyboard */,
@@ -123,6 +137,23 @@
 				3FCAB57622CBBE4C006D6A76 /* Info.plist */,
 			);
 			path = AppStreetTaskUITests;
+			sourceTree = "<group>";
+		};
+		3FCAB58A22CBD98D006D6A76 /* Generic Classes */ = {
+			isa = PBXGroup;
+			children = (
+				3FCAB58B22CBD98D006D6A76 /* CommonCategories.swift */,
+				3FCAB58C22CBD98D006D6A76 /* GlobalReachability.swift */,
+			);
+			path = "Generic Classes";
+			sourceTree = "<group>";
+		};
+		3FCAB59122CBD994006D6A76 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				3FCAB58822CBD5BB006D6A76 /* PlayerTableViewCell.swift */,
+			);
+			path = TableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,8 +287,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FCAB58922CBD5BB006D6A76 /* PlayerTableViewCell.swift in Sources */,
+				3FCAB58E22CBD98D006D6A76 /* CommonCategories.swift in Sources */,
 				3FCAB55722CBBE4B006D6A76 /* ViewController.swift in Sources */,
+				3FCAB58F22CBD98D006D6A76 /* GlobalReachability.swift in Sources */,
+				3FCAB58722CBC9E3006D6A76 /* DropDownItem.swift in Sources */,
 				3FCAB55522CBBE4B006D6A76 /* AppDelegate.swift in Sources */,
+				3F090FD522CC97DE00BED0AB /* GetFlickerPhotos.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
