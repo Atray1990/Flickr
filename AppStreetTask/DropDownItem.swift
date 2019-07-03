@@ -10,13 +10,13 @@ import Foundation
 import UIKit
 
 protocol dropDownProtocol {
-    func dropDownPressed()
+    func dropDownPressed(string: String)
 }
 
 class dropDownBtn: UIButton, dropDownProtocol {
     
-    func dropDownPressed() {
-       // self.setTitle(string, for: .normal)
+    func dropDownPressed(string: String) {
+        self.setTitle(string, for: .normal)
         self.dismissDropDown()
     }
     
@@ -142,7 +142,7 @@ class dropDownView: UIView, UITableViewDelegate, UITableViewDataSource  {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.delegate.dropDownPressed()
+        self.delegate.dropDownPressed(string: dropDownOptions[indexPath.row])
        // self.collectionViewDelegate.collectionViewSetUp(Count: dropDownOptions[indexPath.row]) 
         self.tableView.deselectRow(at: indexPath, animated: true)
     }

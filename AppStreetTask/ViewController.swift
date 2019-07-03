@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     var button = dropDownBtn()
     var dropView = dropDownView()
     lazy var searchBar:UISearchBar = UISearchBar(frame: CGRect(x: 10, y: 5, width: 250, height: 25))
-  
+    
     var photos: [FlickrPhoto] = []
     let apiKey = "c9ee672014711d3be9f7b806b4c77494"
     var collectionViewDelegate : changeCollectionView!
@@ -26,35 +26,35 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpViews()
-        collectionViewSetUp(Count: "4")
+        collectionViewSetUp(Count: "2")
         
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
     
     func setUpViews() {
-        searchBar.placeholder = "Your placeholder"
+        searchBar.placeholder = "search image"
         let leftNavBarButton = UIBarButtonItem(customView:searchBar)
         self.navigationItem.leftBarButtonItem = leftNavBarButton
         searchBar.delegate = self
         /* this code
-        button = dropDownBtn.init(frame: CGRect(x: 0, y: 0, width: 100, height: 30))
-        button.setTitle("Select", for: .normal)
-        button.backgroundColor = UIColor.red
-        button.translatesAutoresizingMaskIntoConstraints = false
-       
-        Add Button to the View Controller
-       let rightBarButton = UIBarButtonItem(customView: button)
-        self.navigationItem.rightBarButtonItem = rightBarButton
-        self.navigationController?.navigationBar.clipsToBounds = true
-        
-        dropView = dropDownView.init(frame: CGRect.init(x: 0, y: 0, width: 0, height: 0))
-       // dropView.delegate = self as! dropDownProtocol
-        dropView.translatesAutoresizingMaskIntoConstraints = false*/
+         button = dropDownBtn.init(frame: CGRect(x: 0, y: 0, width: 100, height: 30))
+         button.setTitle("Select", for: .normal)
+         button.backgroundColor = UIColor.red
+         button.translatesAutoresizingMaskIntoConstraints = false
+         
+         Add Button to the View Controller
+         let rightBarButton = UIBarButtonItem(customView: button)
+         self.navigationItem.rightBarButtonItem = rightBarButton
+         self.navigationController?.navigationBar.clipsToBounds = true
+         
+         dropView = dropDownView.init(frame: CGRect.init(x: 0, y: 0, width: 0, height: 0))
+         // dropView.delegate = self as! dropDownProtocol
+         dropView.translatesAutoresizingMaskIntoConstraints = false*/
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Select", style: .plain, target: self, action: #selector(addTapped))
         
-  
+        
     }
     
     @objc func addTapped(){
@@ -94,7 +94,7 @@ class ViewController: UIViewController {
         } else if Count.contains("4") {
             layout.itemSize = CGSize(width: (self.view.frame.width - 20)/4, height: (self.view.frame.width - 20)/4)
         }
-
+        
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
         self.collectionView.reloadData()
@@ -119,7 +119,7 @@ class ViewController: UIViewController {
     }
     
     func requestForUserDataWith(searchText: String, completionHandler: @escaping(_ result: [String: Any]) -> ()) {
-      let url = URL(string: "https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=\(apiKey)&text=\(searchText)&format=json&nojsoncallback=1")!
+        let url = URL(string: "https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=\(apiKey)&text=\(searchText)&format=json&nojsoncallback=1")!
         let request = URLRequest(url: url)
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
@@ -128,7 +128,7 @@ class ViewController: UIViewController {
             }
             let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
             if (responseJSON as? [String : Any]) != nil {
-            
+                
                 completionHandler(responseJSON as! [String : Any])
             }
         }
@@ -164,7 +164,7 @@ extension ViewController: UISearchBarDelegate {
             
             if let compatData = result["photos"] as? [String: AnyObject], let photo = compatData["photo"]   {
                 
-               self.photos = self.flickerPhotoGetter(flickrPhotos: photo as! [AnyObject])
+                self.photos = self.flickerPhotoGetter(flickrPhotos: photo as! [AnyObject])
             }
             
             DispatchQueue.main.async {
