@@ -22,6 +22,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpViews()
+        collectionViewSetUp()
         
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -45,12 +46,12 @@ class ViewController: UIViewController {
   
     }
     
-    func collectionViewSetUp(isCrousal: Bool) {
-        
-        
+    func collectionViewSetUp() {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 0)
-        layout.itemSize = CGSize(width: (self.collectionView.frame.width - 10 )/2, height: 200)
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
+        layout.itemSize = CGSize(width: (self.view.frame.width - 20)/2, height: (self.view.frame.width - 20)/2)
+        //layout.itemSize = CGSize(width: (self.view.frame.width - 20)/4, height: (self.view.frame.width - 20)/4)
+
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
         self.collectionView.reloadData()
@@ -74,9 +75,8 @@ class ViewController: UIViewController {
         return flickrPhotos
     }
     
-    func requestForUserDataWith(searchText: String, completionHandler: @escaping(_ result: [String: Any]) -> ())
-    {
-        let url = URL(string: "https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=\(apiKey)&text=\(searchText)&format=json&nojsoncallback=1")!
+    func requestForUserDataWith(searchText: String, completionHandler: @escaping(_ result: [String: Any]) -> ()) {
+      let url = URL(string: "https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=\(apiKey)&text=\(searchText)&format=json&nojsoncallback=1")!
         let request = URLRequest(url: url)
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
@@ -113,10 +113,11 @@ extension ViewController: UICollectionViewDataSource {
 extension ViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        guard searchText.count > 3 else {
+        guard searchText.count > 2 else {
             return
         }
-        requestForUserDataWith(searchText: searchText) { result in
+        
+        requestForUserDataWith(searchText: searchText.removingWhitespaces()) { result in
             
             if let compatData = result["photos"] as? [String: AnyObject], let photo = compatData["photo"]   {
                 
