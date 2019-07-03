@@ -10,13 +10,13 @@ import Foundation
 import UIKit
 
 protocol dropDownProtocol {
-    func dropDownPressed(string : String)
+    func dropDownPressed()
 }
 
 class dropDownBtn: UIButton, dropDownProtocol {
     
-    func dropDownPressed(string: String) {
-        self.setTitle(string, for: .normal)
+    func dropDownPressed() {
+       // self.setTitle(string, for: .normal)
         self.dismissDropDown()
     }
     
@@ -30,20 +30,20 @@ class dropDownBtn: UIButton, dropDownProtocol {
         
         self.backgroundColor = UIColor.darkGray
         
-        dropView = dropDownView.init(frame: CGRect.init(x: 0, y: 0, width: 0, height: 0))
+       // dropView = dropDownView.init(frame: CGRect.init(x: 0, y: 0, width: 0, height: 0))
         dropView.delegate = self
-        dropView.translatesAutoresizingMaskIntoConstraints = false
+       // dropView.translatesAutoresizingMaskIntoConstraints = false
        
     }
     
-    override func didMoveToSuperview() {
+    /*override func didMoveToSuperview() {
         self.superview?.addSubview(dropView)
         self.superview?.bringSubviewToFront(dropView)
         dropView.topAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         dropView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         dropView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
         height = dropView.heightAnchor.constraint(equalToConstant: 150)
-    }
+    }*/
     
     var isOpen = false
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -104,6 +104,7 @@ class dropDownView: UIView, UITableViewDelegate, UITableViewDataSource  {
     var tableView = UITableView()
     
     var delegate : dropDownProtocol!
+   
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -118,11 +119,6 @@ class dropDownView: UIView, UITableViewDelegate, UITableViewDataSource  {
         tableView.isUserInteractionEnabled = true
         
         self.addSubview(tableView)
-        
-        tableView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
-        tableView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
-        tableView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         
     }
     
@@ -146,7 +142,8 @@ class dropDownView: UIView, UITableViewDelegate, UITableViewDataSource  {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.delegate.dropDownPressed(string: dropDownOptions[indexPath.row])
+        self.delegate.dropDownPressed()
+       // self.collectionViewDelegate.collectionViewSetUp(Count: dropDownOptions[indexPath.row]) 
         self.tableView.deselectRow(at: indexPath, animated: true)
     }
     
