@@ -37,7 +37,8 @@ class ViewController: UIViewController {
         let leftNavBarButton = UIBarButtonItem(customView:searchBar)
         self.navigationItem.leftBarButtonItem = leftNavBarButton
         searchBar.delegate = self
-        /* this code
+        
+        /* this code is for the drop down implementation
          button = dropDownBtn.init(frame: CGRect(x: 0, y: 0, width: 100, height: 30))
          button.setTitle("Select", for: .normal)
          button.backgroundColor = UIColor.red

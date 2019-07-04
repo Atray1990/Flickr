@@ -30,20 +30,20 @@ class dropDownBtn: UIButton, dropDownProtocol {
         
         self.backgroundColor = UIColor.darkGray
         
-       // dropView = dropDownView.init(frame: CGRect.init(x: 0, y: 0, width: 0, height: 0))
+        dropView = dropDownView.init(frame: CGRect.init(x: 0, y: 0, width: 0, height: 0))
         dropView.delegate = self
-       // dropView.translatesAutoresizingMaskIntoConstraints = false
+        dropView.translatesAutoresizingMaskIntoConstraints = false
        
     }
     
-    /*override func didMoveToSuperview() {
+    override func didMoveToSuperview() {
         self.superview?.addSubview(dropView)
         self.superview?.bringSubviewToFront(dropView)
         dropView.topAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         dropView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         dropView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
         height = dropView.heightAnchor.constraint(equalToConstant: 150)
-    }*/
+    }
     
     var isOpen = false
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -143,7 +143,6 @@ class dropDownView: UIView, UITableViewDelegate, UITableViewDataSource  {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.delegate.dropDownPressed(string: dropDownOptions[indexPath.row])
-       // self.collectionViewDelegate.collectionViewSetUp(Count: dropDownOptions[indexPath.row]) 
         self.tableView.deselectRow(at: indexPath, animated: true)
     }
     
